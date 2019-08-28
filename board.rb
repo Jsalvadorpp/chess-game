@@ -1,7 +1,7 @@
 require "./square"
 
 class Board
-   
+    
     def initialize
         @grid = Array.new(8) { Array.new(8) }
         setBoard()
@@ -16,18 +16,25 @@ class Board
 
     def displayBoard
         8.times do |x|
-            puts "  +----------------------------------------+"
-            print "#{8-x} | "
+            puts "  +-----------------------------------------------+"
+            print "#{8-x} |"
 
             8.times do |y|
-                print " #{@grid[x][y].name} |"
+                pieceSymbol = (@grid[x][y].occupiedBy.nil?) ? "  -  " : @grid[x][y].occupiedBy.symbol
+                print "#{pieceSymbol}|"
             end
             puts ""
         end
-        puts "  +----------------------------------------+"
-        print "   "
-        ("a".."h").each {|c| print "  #{c}  " }
+        puts "  +-----------------------------------------------+"
+        print "  "
+        ("a".."h").each {|c| print "   #{c}  " }
         puts ""
+    end
+
+    def setPieceAt(piece,x,y)
+        @grid[x][y].occupiedBy = piece
+        piece.pos.x = x
+        piece.pos.y = y
     end
 
 

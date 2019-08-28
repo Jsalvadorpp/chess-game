@@ -1,7 +1,7 @@
 require "./piece"
 
 class Pawn < Piece
-    def initialize(color,x,y)
-        super(color,"pawn",x,y,"P")
+    def initialize(color)
+        super(color,"pawn","P")
     end
 end

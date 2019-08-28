@@ -1,8 +1,8 @@
 require "./piece"
 
 class Bishop < Piece
-    def initialize(color,x,y)
-        super(color,"bishop",x,y,"B")
+    def initialize(color)
+        super(color,"bishop","B")
     end
 end
 
