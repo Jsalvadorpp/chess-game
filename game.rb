@@ -5,22 +5,31 @@ require "./king"
 require "./queen"
 require "./bishop"
 require "./pawn"
+require "./player"
+require 'io/console'
 
 class Game
     def initialize
         @board = Board.new
         newGame()
+        gameLoop()
     end
 
-    def newGame
-        #set each piece on board
-
+    def newGame         #set each piece on board
         #black pieces
         setPiecesOnBoard("black")
         #white pieces
         setPiecesOnBoard("white")
 
+        system("clear")
         @board.displayBoard()
+    end
+
+    def gameLoop
+
+        player1 = Player.new("white")
+        player1.playerTurn(@board)
+
 
     end
 

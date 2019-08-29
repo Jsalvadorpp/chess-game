@@ -37,14 +37,25 @@ class Board
         piece.pos.y = y
     end
 
+    def squareInBoard?(name)
+        result = @grid.flatten.find {|square| square.name == name}
+        return (result.nil?) ? false : true 
+    end
+
+    def getSquare(name)
+        return @grid.flatten.find { |square| square.name == name} 
+    end
+
+
+
 
 
 
 end
 
 #game = Board.new
+#puts game.getSquare("a3")
 #game.displayBoard()
-
 
 
 
