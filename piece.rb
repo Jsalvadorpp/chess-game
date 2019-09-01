@@ -1,5 +1,6 @@
 require "./square"
 require "colorize"
+require "./board"
 
 class Piece
     attr_reader :color, :type , :symbol
@@ -19,5 +20,16 @@ class Piece
     def deleteFromGame
         raise NotImplementedError, "you must implement the method"
     end
+
+    def availableMoves
+        raise NotImplementedError, "you must implement the method"
+    end
+
+    def legalMove(board,x,y)
+        return false unless board.squareInBoard_coords(x,y)
+        return true if board.getPiece_coords(x,y) == nil
+        return (board.getPiece_coords(x,y).color == self.color) ? false : true
+    end
+    
 end
 

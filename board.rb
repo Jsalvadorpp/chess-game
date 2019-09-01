@@ -42,10 +42,21 @@ class Board
         return (result.nil?) ? false : true 
     end
 
+    def squareInBoard_coords(x,y)
+        return (x.between?(0,7) && y.between?(0,7)) ? true : false
+    end
+
     def getSquare(name)
         return @grid.flatten.find { |square| square.name == name} 
     end
 
+    def getSquare_coords(x,y)
+        return @grid.flatten.find { |square| square.pos.x == x && square.pos.y == y} 
+    end
+
+    def getPiece_coords(x,y)
+        return getSquare_coords(x,y).occupiedBy
+    end
 
 
 
