@@ -25,7 +25,6 @@ class Pawn < Piece
             moves.push([x+1,y+1]) if pawnLegalMove(board,x+1,y+1)
         end
 
-        p moves
         return moves
     end
 

@@ -44,10 +44,7 @@ class Bishop < Piece
             y = y+1
         end
         
-        p moves
         return moves
-       
-
     end
 end
 

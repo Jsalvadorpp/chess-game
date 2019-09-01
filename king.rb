@@ -22,8 +22,6 @@ class King < Piece
         moves.push([x+1,y]) if legalMove(board,x+1,y)
         moves.push([x+1,y+1]) if legalMove(board,x+1,y+1)
 
-        p moves
         return moves
-
     end
 end

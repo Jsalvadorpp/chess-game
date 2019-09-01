@@ -18,9 +18,7 @@ class Knight < Piece
         moves.push([self.pos.x-2,self.pos.y-1]) if legalMove(board,self.pos.x-2,self.pos.y-1)
         moves.push([self.pos.x-2,self.pos.y+1]) if legalMove(board,self.pos.x-2,self.pos.y+1)
 
-        p moves
         return moves
-
     end
 
 end

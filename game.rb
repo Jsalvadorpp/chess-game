@@ -28,8 +28,16 @@ class Game
     def gameLoop
 
         player1 = Player.new("white")
-        player1.playerTurn(@board)
+        player2 = Player.new("black")
 
+        while true
+            player1.playerTurn(@board)
+            system("clear")
+            @board.displayBoard()
+            player2.playerTurn(@board)
+            system("clear")
+            @board.displayBoard()
+        end
 
     end
 

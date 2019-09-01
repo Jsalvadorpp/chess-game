@@ -39,8 +39,6 @@ class Rook < Piece
             x = x-1
         end
 
-        p moves
         return moves
-
     end
 end
