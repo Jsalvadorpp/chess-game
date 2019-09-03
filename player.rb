@@ -108,7 +108,6 @@ class Player
     def checkmate?(board)
 
         check = board.check?(board,@color)
-
         puts "\n #{@color} king is in check" if check
 
         playerPieces = (@color == "white") ? board.whitePieces : board.blackPieces
@@ -125,8 +124,6 @@ class Player
         end
 
     end
-
-  
 
 end
 

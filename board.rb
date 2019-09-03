@@ -73,9 +73,8 @@ class Board
             targetSquare = auxBoard.getSquare_coords(x,y)
 
             originSquare.occupiedBy = nil
-
             auxBoard.eliminateFromGame(targetSquare.occupiedBy) if targetSquare.occupiedBy != nil
-
+            
             targetSquare.occupiedBy = piece
             
             if piece.type == "king"
@@ -111,16 +110,7 @@ class Board
         end
     end
 
-
-
-
-
 end
-
-#game = Board.new
-#puts game.getSquare("a3")
-#game.displayBoard()
-
 
 
 

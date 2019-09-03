@@ -2,7 +2,7 @@ require "./piece"
 
 class Pawn < Piece
     def initialize(color)
-        super(color,"pawn","P")
+        super(color,"pawn","♟")
     end
 
     def availableMoves_withoutCheck(board)
@@ -42,6 +42,5 @@ class Pawn < Piece
 
         return false
     end
-
 
 end

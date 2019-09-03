@@ -2,12 +2,11 @@ require "./piece"
 
 class Rook < Piece
     def initialize(color)
-        super(color,"rook","R")
+        super(color,"rook","♜")
     end
 
     def availableMoves_withoutCheck(board)
         moves = []
-
 
         x = self.pos.x
         y = self.pos.y + 1 

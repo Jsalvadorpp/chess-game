@@ -73,8 +73,6 @@ class Game
         @board.blackPieces = array if color == "black"
         @board.whiteKing = @board.getPiece_coords(kingRow,3) if color == "white"
         @board.blackKing = @board.getPiece_coords(kingRow,3) if color == "black"
-
-
     end
 
 end

@@ -2,7 +2,7 @@ require "./piece"
 
 class Bishop < Piece
     def initialize(color)
-        super(color,"bishop","B")
+        super(color,"bishop","♝")
     end
 
     def availableMoves_withoutCheck(board)

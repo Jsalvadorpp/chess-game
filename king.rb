@@ -2,7 +2,7 @@ require "./piece"
 
 class King < Piece
     def initialize(color)
-        super(color,"king","K")
+        super(color,"king","♚")
     end
 
     def availableMoves_withoutCheck(board)
