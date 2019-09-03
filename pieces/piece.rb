@@ -1,6 +1,6 @@
-require "./square"
+require_relative "../square"
 require "colorize"
-require "./board"
+require_relative "../board"
 
 class Piece
     attr_reader :color, :type , :symbol

@@ -1,6 +1,5 @@
 require "./square"
 
-
 class Board
     attr_accessor :whiteKing, :whitePieces
     attr_accessor :blackKing, :blackPieces

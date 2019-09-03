@@ -1,12 +1,12 @@
 require "./board"
-require "./rook"
-require "./knight"
-require "./king"
-require "./queen"
-require "./bishop"
-require "./pawn"
-require "./player"
+require  "./player"
 require 'io/console'
+require_relative "pieces/rook"
+require_relative "pieces/knight"
+require_relative "pieces/king"
+require_relative "pieces/queen"
+require_relative "pieces/bishop"
+require_relative "pieces/pawn"
 
 class Game
     def initialize
