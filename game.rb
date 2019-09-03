@@ -46,7 +46,19 @@ class Game
         pawsRow = (color == "black" ) ? 1 : 6
         piecesKingRow = [Rook,Knight,Bishop,King,Queen,Bishop,Knight,Rook]
         piecesKingRow.each_with_index { |piece,index| @board.setPieceAt(piece.new(color),kingRow,index)}
-        8.times { |y| @board.setPieceAt(Pawn.new(color),pawsRow,y)}
+        #8.times { |y| @board.setPieceAt(Pawn.new(color),pawsRow,y)}
+
+        array = []
+        #// add pieces to an array
+        8.times { |y| array.push(@board.getPiece_coords(kingRow,y)) }
+        #8.times { |y| array.push(@board.getPiece_coords(pawsRow,y)) }
+
+        @board.whitePieces = array if color == "white"
+        @board.blackPieces = array if color == "black"
+        @board.whiteKing = @board.getPiece_coords(kingRow,3) if color == "white"
+        @board.blackKing = @board.getPiece_coords(kingRow,3) if color == "black"
+
+
     end
 
 end

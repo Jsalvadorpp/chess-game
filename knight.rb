@@ -5,7 +5,7 @@ class Knight < Piece
         super(color,"knight","L")
     end
 
-    def availableMoves(board)
+    def availableMoves_withoutCheck(board)
         moves = []
 
         moves.push([self.pos.x+2,self.pos.y-1]) if legalMove(board,self.pos.x+2,self.pos.y-1)

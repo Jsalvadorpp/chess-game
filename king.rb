@@ -5,7 +5,7 @@ class King < Piece
         super(color,"king","K")
     end
 
-    def availableMoves(board)
+    def availableMoves_withoutCheck(board)
         moves = []
 
         x = self.pos.x

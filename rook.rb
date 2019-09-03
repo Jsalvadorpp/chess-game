@@ -5,7 +5,7 @@ class Rook < Piece
         super(color,"rook","R")
     end
 
-    def availableMoves(board)
+    def availableMoves_withoutCheck(board)
         moves = []
 
 

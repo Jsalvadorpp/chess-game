@@ -1,9 +1,16 @@
 require "./square"
 
+
 class Board
-    
+    attr_accessor :whiteKing, :whitePieces
+    attr_accessor :blackKing, :blackPieces
+ 
     def initialize
         @grid = Array.new(8) { Array.new(8) }
+        @whiteKing = nil
+        @blackKing = nil
+        @whitePieces = []
+        @blackPieces = []
         setBoard()
     end
 
@@ -56,6 +63,52 @@ class Board
 
     def getPiece_coords(x,y)
         return getSquare_coords(x,y).occupiedBy
+    end
+
+    def kingIntoCheck(piece,x,y)
+
+            auxBoard = Marshal.load(Marshal.dump(self))
+
+            originSquare = auxBoard.getSquare_coords(piece.pos.x,piece.pos.y)
+            targetSquare = auxBoard.getSquare_coords(x,y)
+
+            originSquare.occupiedBy = nil
+
+            auxBoard.eliminateFromGame(targetSquare.occupiedBy) if targetSquare.occupiedBy != nil
+
+            targetSquare.occupiedBy = piece
+            
+            if piece.type == "king"
+                if piece.color == "white"
+                    auxBoard.whiteKing.pos.x = targetSquare.pos.x 
+                    auxBoard.whiteKing.pos.y = targetSquare.pos.y
+                else
+                    auxBoard.blackKing.pos.x = targetSquare.pos.x 
+                    auxBoard.blackKing.pos.y = targetSquare.pos.y
+                end
+            end
+
+            return check?(auxBoard,piece.color)
+    end
+
+    def eliminateFromGame(piece)
+        @whitePieces.delete(piece) if piece.color == "white"
+        @blackPieces.delete(piece) if piece.color == "black"
+    end
+
+    def check?(board,color)
+
+        if color == "white"
+            board.blackPieces.each do |piece|
+                return true if piece.availableMoves_withoutCheck(board).include?([board.whiteKing.pos.x,board.whiteKing.pos.y])
+            end
+            return false
+        else
+            board.whitePieces.each do |piece|
+                return true if piece.availableMoves_withoutCheck(board).include?([board.blackKing.pos.x,board.blackKing.pos.y])
+            end
+            return false
+        end
     end
 
 

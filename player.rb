@@ -49,7 +49,7 @@ class Player
                 end
             end
 
-            if piece.availableMoves(board).empty?
+            if piece.allAvailableMoves(board).empty?
                 system("clear")
                 board.displayBoard()
                 puts "\nno available moves for this piece"
@@ -83,7 +83,7 @@ class Player
 
             choosenSquare = board.getSquare(target)
         
-            unless piece.availableMoves(board).include?([choosenSquare.pos.x,choosenSquare.pos.y])
+            unless piece.allAvailableMoves(board).include?([choosenSquare.pos.x,choosenSquare.pos.y])
                 system("clear")
                 board.displayBoard()
                 puts "\nyou can't move the piece to that position"
@@ -95,6 +95,7 @@ class Player
 
         #// set piece to the chooseSquare position
         origin.occupiedBy = nil
+        board.eliminateFromGame(choosenSquare.occupiedBy) if choosenSquare.occupiedBy != nil
         choosenSquare.occupiedBy = piece
         choosenSquare.occupiedBy.pos.x = choosenSquare.pos.x
         choosenSquare.occupiedBy.pos.y = choosenSquare.pos.y

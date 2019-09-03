@@ -5,7 +5,7 @@ class Bishop < Piece
         super(color,"bishop","B")
     end
 
-    def availableMoves(board)
+    def availableMoves_withoutCheck(board)
         moves = []
 
         x = self.pos.x-1
@@ -44,6 +44,12 @@ class Bishop < Piece
             y = y+1
         end
         
+        return moves
+    end
+
+    def allAvailableMoves(board)
+        moves = availableMoves_withoutCheck(board)
+        moves.select! { |move| board.kingIntoCheck(self,move[0],move[1]) == false}
         return moves
     end
 end

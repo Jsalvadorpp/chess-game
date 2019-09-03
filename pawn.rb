@@ -5,7 +5,7 @@ class Pawn < Piece
         super(color,"pawn","P")
     end
 
-    def availableMoves(board)
+    def availableMoves_withoutCheck(board)
         moves = []
         
         x = self.pos.x
