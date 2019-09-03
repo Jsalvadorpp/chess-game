@@ -2,6 +2,8 @@ require 'io/console'
 require './board'
 
 class Player
+    attr_reader :name , :color
+
     def initialize(color)
         @color = color
         @name = nil
@@ -17,6 +19,8 @@ class Player
     def playerTurn(board)
         origin = chooseOrigin(board)
         chooseTarget(board,origin)
+        system("clear")
+        board.displayBoard()
     end
 
     def chooseOrigin(board)
@@ -99,6 +103,27 @@ class Player
         choosenSquare.occupiedBy = piece
         choosenSquare.occupiedBy.pos.x = choosenSquare.pos.x
         choosenSquare.occupiedBy.pos.y = choosenSquare.pos.y
+    end
+
+    def checkmate?(board)
+
+        check = board.check?(board,@color)
+
+        puts "\n #{@color} king is in check" if check
+
+        playerPieces = (@color == "white") ? board.whitePieces : board.blackPieces
+        playerAvailableMoves = []
+        
+        playerPieces.each{|piece| playerAvailableMoves.push(piece.allAvailableMoves(board)) unless piece.allAvailableMoves(board).empty?}
+
+        if check && playerAvailableMoves.empty?
+            return "checkmate" 
+        elsif playerAvailableMoves.empty? && !check
+            return "stalemate"
+        else
+            return "none"
+        end
+
     end
 
   
