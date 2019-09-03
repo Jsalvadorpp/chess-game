@@ -2,6 +2,7 @@
 
 A simple chess game made in ruby , where two persons play against each other.This is played in the console terminal , there's still some features that are not included like Castling, promotion, en passant.
 
+![](images/preview.png)
 
 ### To play 
 
