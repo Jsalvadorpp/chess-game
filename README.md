@@ -6,7 +6,7 @@ A simple chess game made in ruby , where two persons play against each other.Thi
 
 ### To play 
 
-You must have ruby installed on your pc to play
+You must have ruby installed on your pc to play.
 
   * `clone this repository`
   * `go into the folder and open the terminal`
